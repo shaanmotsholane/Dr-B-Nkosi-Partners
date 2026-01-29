@@ -1,0 +1,975 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Dr B.S Nkosi & Partners</title>
+    <meta name="description" content="Get in touch with Dr B.S Nkosi & Partners - Visit us at 547 Sparrow Street, Tembisa, or call +27 83 291 4814 to book an appointment." />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004a99;
+            --secondary: #00a86b;
+            --accent: #ff6b35;
+            --light-bg: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+            .top-bar .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--white);
+        }
+
+        nav h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+        }
+
+            nav h1 .subtitle {
+                display: block;
+                font-size: 12px;
+                font-weight: 400;
+                color: var(--gray);
+                font-family: 'Inter', sans-serif;
+                margin-top: 2px;
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+            nav ul li a {
+                text-decoration: none;
+                color: var(--dark);
+                font-weight: 500;
+                font-size: 15px;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+
+                nav ul li a:hover,
+                nav ul li a.active {
+                    color: var(--primary);
+                }
+
+                nav ul li a::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: var(--primary);
+                    transition: width 0.3s ease;
+                }
+
+                nav ul li a:hover::after,
+                nav ul li a.active::after {
+                    width: 100%;
+                }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            padding: 60px 30px;
+        }
+
+            .mobile-menu.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+            .mobile-menu ul li {
+                margin: 25px 0;
+            }
+
+                .mobile-menu ul li a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 24px;
+                    font-weight: 500;
+                }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(0,102,204,0.93) 0%, rgba(0,74,153,0.95) 100%), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1600') center/cover no-repeat;
+            color: var(--white);
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+            .page-header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h3 {
+            font-size: 38px;
+            color: var(--dark);
+            margin-bottom: 18px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 17px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Contact Cards */
+        .contact-cards {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+            .contact-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-lg);
+            }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: var(--white);
+            margin: 0 auto 25px;
+        }
+
+        .contact-card h4 {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+            .contact-card a:hover {
+                text-decoration: underline;
+            }
+
+        .contact-card .btn-contact {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .contact-card .btn-contact:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
+            }
+
+        /* Hours Section */
+        .hours {
+            background: var(--light-bg);
+        }
+
+        .hours-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hours-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--light-gray);
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+            .hours-item:last-child {
+                border-bottom: none;
+            }
+
+            .hours-item .day {
+                font-weight: 600;
+                color: var(--dark);
+                font-size: 16px;
+            }
+
+            .hours-item .time {
+                color: var(--gray);
+                font-size: 16px;
+            }
+
+            .hours-item.closed .time {
+                color: var(--accent);
+            }
+
+        .hours-note {
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+            .hours-note p {
+                font-size: 14px;
+                color: var(--gray);
+                line-height: 1.6;
+            }
+
+        /* Map Section */
+        .map-section {
+            background: var(--white);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--light-gray);
+        }
+
+            .map-container iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+        .map-details {
+            margin-top: 40px;
+            background: var(--light-bg);
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+            .map-details h4 {
+                font-size: 20px;
+                color: var(--dark);
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+
+            .map-details p {
+                font-size: 15px;
+                color: var(--gray);
+                line-height: 1.8;
+                margin-bottom: 10px;
+            }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+            .cta h3 {
+                font-size: 36px;
+                font-weight: 700;
+                margin-bottom: 20px;
+                font-family: 'Playfair Display', serif;
+            }
+
+            .cta p {
+                font-size: 18px;
+                margin-bottom: 35px;
+                opacity: 0.95;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+            .btn-white:hover {
+                background: var(--light-bg);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-lg);
+            }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+            .btn-outline:hover {
+                background: var(--white);
+                color: var(--primary);
+            }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 50px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmin(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+            .footer-section a:hover {
+                color: var(--white);
+                text-decoration: underline;
+            }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive Design */
+        @media(max-width: 968px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h2 {
+                font-size: 32px;
+            }
+
+            .section-header h3 {
+                font-size: 32px;
+            }
+
+            .cta h3 {
+                font-size: 28px;
+            }
+
+            nav h1 {
+                font-size: 18px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 640px) {
+            .page-header {
+                padding: 80px 0 60px;
+            }
+
+                .page-header h2 {
+                    font-size: 28px;
+                }
+
+                .page-header p {
+                    font-size: 16px;
+                }
+
+            .top-bar {
+                font-size: 11px;
+            }
+
+                .top-bar .container {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 8px;
+                }
+
+            .top-bar-item {
+                font-size: 11px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-header h3 {
+                font-size: 26px;
+            }
+
+            .section-header p {
+                font-size: 15px;
+            }
+
+            .contact-card {
+                padding: 30px 25px;
+            }
+
+            nav h1 {
+                font-size: 16px;
+            }
+
+                nav h1 .subtitle {
+                    font-size: 11px;
+                }
+
+            .cta h3 {
+                font-size: 24px;
+            }
+
+            .cta p {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hours-box {
+                padding: 25px 20px;
+            }
+
+            .hours-item {
+                flex-direction: column;
+                gap: 5px;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+        }
+
+        @media(max-width: 400px) {
+            .container {
+                width: 95%;
+            }
+
+            .page-header h2 {
+                font-size: 24px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-item">
+                    <span>📍</span>
+                    <span>547 Sparrow Street, Tembisa</span>
+                </div>
+                <div class="top-bar-item">
+                    <span>📞</span>
+                    <span>+27 83 291 4814</span>
+                    <span style="margin-left: 15px;">⏰</span>
+                    <span>Open 6 Days</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo-container">
+                    <div class="logo-icon">⚕️</div>
+                    <div>
+                        <h1>
+                            Dr B.S Nkosi & Partners
+                            <span class="subtitle">General Medical Practice</span>
+                        </h1>
+                    </div>
+                </a>
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contact.html" class="active">Contact Us</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
+        <ul>
+            <li><a href="index.html" onclick="toggleMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="toggleMobileMenu()">About</a></li>
+            <li><a href="services.html" onclick="toggleMobileMenu()">Services</a></li>
+            <li><a href="contact.html" onclick="toggleMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h2>Get In Touch</h2>
+                <p>We're here to help with all your healthcare needs</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="contact-cards">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Contact Information</div>
+                <h3>How to Reach Us</h3>
+                <p>Multiple ways to connect with our practice</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h4>Visit Our Practice</h4>
+                    <p>
+                        547 Sparrow Street<br>
+                        Lifateng Section<br>
+                        Tembisa<br>
+                        Johannesburg, 1632
+                    </p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=547+Sparrow+Street+Lifateng+Tembisa" target="_blank" class="btn-contact">Get Directions</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h4>Call Us</h4>
+                    <p>
+                        Phone: <a href="tel:+27832914814">+27 83 291 4814</a>
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Our friendly reception staff will assist you with:<br>
+                        • Appointment bookings<br>
+                        • General inquiries<br>
+                        • Medical questions
+                    </p>
+                    <a href="tel:+27832914814" class="btn-contact">Call Now</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h4>WhatsApp</h4>
+                    <p>
+                        Quick and convenient messaging for appointments and inquiries
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Available during operating hours<br>
+                        Monday – Saturday<br>
+                        09:00 – 19:00
+                    </p>
+                    <a href="https://wa.me/27832914814" target="_blank" class="btn-contact">Message Us</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h4>Email</h4>
+                    <p>
+                        For non-urgent inquiries and appointment requests
+                    </p>
+                    <p style="margin-top: 15px;">
+                        <a href="mailto:dr.bs.nkosi@gmail.com">dr.bs.nkosi@gmail.com</a>
+                    </p>
+                    <p style="margin-top: 10px; font-size: 13px;">
+                        Please note: Email is not monitored for urgent medical matters. Call us for urgent concerns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hours">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Operating Hours</div>
+                <h3>When We're Open</h3>
+                <p>We're here when you need us</p>
+            </div>
+
+            <div class="hours-content">
+                <div class="hours-box">
+                    <div class="hours-item">
+                        <span class="day">Monday</span>
+                        <span class="time">09:00 – 19:00</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="day">Tuesday</span>
+                        <span class="time">09:00 – 19:00</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="day">Wednesday</span>
+                        <span class="time">09:00 – 19:00</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="day">Thursday</span>
+                        <span class="time">09:00 – 19:00</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="day">Friday</span>
+                        <span class="time">09:00 – 19:00</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="day">Saturday</span>
+                        <span class="time">09:00 – 19:00</span>
+                    </div>
+                    <div class="hours-item closed">
+                        <span class="day">Sunday</span>
+                        <span class="time">Closed</span>
+                    </div>
+
+                    <div class="hours-note">
+                        <p>
+                            <strong>Please Note:</strong> We recommend calling ahead to book an appointment to minimize waiting time. Walk-ins are welcome but may experience longer wait times depending on patient volume.
+                        </p>
+                        <p style="margin-top: 10px;">
+                            <strong>Public Holidays:</strong> Our hours may vary during public holidays. Please call ahead to confirm.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Find Us</div>
+                <h3>Our Location</h3>
+                <p>Easy to find in the heart of Tembisa</p>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.8!2d28.22!3d-25.99!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDU5JzI0LjQiUyAyOMKwMTMnMTIuMCJF!5e0!3m2!1sen!2sza!4v1234567890"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <div class="map-details">
+                <h4>Getting to Our Practice</h4>
+                <p><strong>Address:</strong> 547 Sparrow Street, Lifateng Section, Tembisa, Johannesburg, 1632</p>
+                <p><strong>Landmarks:</strong> Our practice is easily accessible from the main roads in Tembisa. Look for our signage on Sparrow Street.</p>
+                <p><strong>Parking:</strong> Street parking is available near our practice.</p>
+                <p><strong>Public Transport:</strong> We are accessible via local taxi routes serving the Lifateng area.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h3>Ready to Book Your Appointment?</h3>
+            <p>Contact us today and let us take care of your health needs</p>
+            <div class="cta-buttons">
+                <a href="tel:+27832914814" class="btn btn-white">📞 Call Now</a>
+                <a href="https://wa.me/27832914814" class="btn btn-outline">💬 WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Dr B.S Nkosi & Partners</h4>
+                    <p>A trusted general medical practice serving the Tembisa community with professional, compassionate healthcare.</p>
+                    <p style="margin-top: 15px;">Practice No: 0219363</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="index.html">About Us</a></p>
+                    <p><a href="index.html">Our Services</a></p>
+                    <p><a href="contact.html">Contact Us</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p>📍 547 Sparrow Street, Tembisa</p>
+                    <p>📞 <a href="tel:+27832914814">+27 83 291 4814</a></p>
+                    <p>💬 <a href="https://wa.me/27832914814">WhatsApp</a></p>
+                    <p>📧 dr.bs.nkosi@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dr B.S Nkosi & Partners. All Rights Reserved. | Professional Medical Care You Can Trust</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+    </script>
+
+</body>
+</html>
